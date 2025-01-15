@@ -25,7 +25,7 @@ function Productcmp({product}) {
                 <p className="text-gray-900 text-lg lg:text-xl font-bold">
                     Price: ${product.price}
                 </p>
-                <Buybox/>
+                <Buybox product={product} />
             </div>
         </div>
     )

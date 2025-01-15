@@ -9,7 +9,7 @@ function Header() {
         <Link to='/'><img src={logo} width="100px"/></Link>
         <Navbar/>
         <div className="flex items-center "> 
-          <span className="material-symbols-outlined transition-all px-3 ml-2 text-pink-600 border-pink-600 border-2 rounded-lg hover:bg-pink-600 hover:text-white text-base cursor-pointer">shopping_cart</span>
+          <Link to={`cart`}><span className="material-symbols-outlined transition-all px-3 ml-2 text-pink-600 border-pink-600 border-2 rounded-lg hover:bg-pink-600 hover:text-white text-base cursor-pointer">shopping_cart</span></Link>
           <Buttons model="primary" text="Log in"/>
           <Buttons model="accent" text="Sign up"/>
         </div>

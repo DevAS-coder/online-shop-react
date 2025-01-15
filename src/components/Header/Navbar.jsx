@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-function Navbar() {
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-    const [isopen, setisopen] = useState(false)
-    const [buttontext, setbuttontext] = useState('Menu')
-    const [Isselected, setIsselected] = useState(null)
+function Navbar() {
+    const [isopen, setisopen] = useState(false);
+    const [buttontext, setbuttontext] = useState('Menu');
+    const [Isselected, setIsselected] = useState(null);
+    const location = useLocation();
 
     const clickhandler = () => {
-        setisopen(!isopen)
-        setbuttontext(isopen ? 'Menu' : 'Close')
+        setisopen(!isopen);
+        setbuttontext(isopen ? 'Menu' : 'Close');
     }
 
-    const itemclickhandler = (index) => {
-        setisopen(false)
-        setbuttontext(isopen ? 'Menu' : 'Close')
-        setIsselected(index)
+    const itemclickhandler = () => {
+        setisopen(false);
+        setbuttontext('Menu');
     }
 
     const menuItems = [
@@ -24,18 +24,32 @@ function Navbar() {
         { path: "/category/women's-clothing", label: "Women's clothing" },
         { path: '/category/Jewelery', label: 'Jewelery' },
         { path: '/about-us', label: 'About us' },
-    ]
+    ];
+
+    useEffect(() => {
+        const currentPath = location.pathname;
+        const selectedIndex = menuItems.findIndex(item => item.path === currentPath);
+        setIsselected(selectedIndex);
+    }, [location.pathname]);
 
     return (
         <div className="flex items-center sm:w-52 lg:w-auto sm:justify-end">
-            <button className="border-pink-500 rounded-xl text-pink-500 border-4 flex justify-center items-center p-2 lg:hidden" onClick={clickhandler}><span className="material-symbols-outlined">{buttontext}</span><span>{buttontext}</span></button>
+            <button className="border-pink-500 rounded-xl text-pink-500 border-4 flex justify-center items-center p-2 lg:hidden" onClick={clickhandler}>
+                <span className="material-symbols-outlined">{buttontext}</span>
+                <span>{buttontext}</span>
+            </button>
 
-            <ul className={`transition-max-height duration-300 ease-in-out ${isopen ? 'max-h-80 py-4' : 'max-h-0'} overflow-hidden bg-slate-300  mt-3 rounded-xl -ml-16 top-48 sm:top-24 absolute md:-mr-16 lg:bg-white lg:max-h-80 lg:flex lg:space-x-4 lg:relative lg:top-0 xl:space-x-10 z-40`}>
-
+            <ul className={`transition-max-height duration-300 ease-in-out ${isopen ? 'max-h-80 py-4' : 'max-h-0'} overflow-hidden bg-slate-300 mt-3 rounded-xl -ml-16 top-48 sm:top-24 absolute md:-mr-16 lg:bg-white lg:max-h-80 lg:flex lg:space-x-4 lg:relative lg:top-0 xl:space-x-10 z-40`}>
                 {menuItems.map((item, index) => (
-                    <Link key={index} to={item.path}><li className={Isselected === index ? "text-pink-600 cursor-pointer border-b-2 border-pink-600 text-xl" : ""} onClick={() => itemclickhandler(index)}>{item.label}</li></Link>
+                    <Link key={index} to={item.path}>
+                        <li
+                            className={Isselected === index ? "text-pink-600 cursor-pointer border-b-2 border-pink-600 text-xl" : ""}
+                            onClick={() => itemclickhandler()}
+                        >
+                            {item.label}
+                        </li>
+                    </Link>
                 ))}
-
             </ul>
         </div>
     );
