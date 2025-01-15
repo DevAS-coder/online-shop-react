@@ -8,7 +8,7 @@ const Popup = ({ title, des }) => {
     return (
         <div className="flex flex-col items-center justify-center bg-gray-100">
             {(
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                     <motion.div
                         initial={{ scale: 0.5, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}

@@ -21,7 +21,11 @@ const router = createBrowserRouter([
     ]
   },
   
-])
+],
+// {
+//   basename: '/projects/online-shop-react',
+// }
+)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
