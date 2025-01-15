@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+li{
+  transition: all .2s ease-in-out;
+  @apply hover:text-pink-600 cursor-pointer border-b-2 border-transparent hover:border-pink-600 text-xl;
+  @apply mb-4 mt-4 px-4 mx-4 text-center sm:text-left lg:px-0 lg:mx-0
+}
