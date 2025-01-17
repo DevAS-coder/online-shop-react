@@ -72,11 +72,5 @@ src/
 
 Contributions are welcome! Feel free to open issues or submit pull requests to enhance the project.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 Coded By Devas
 Happy Coding! 🎉
