@@ -41,9 +41,7 @@ This project is a modern e-commerce store built using React, Vite, and Tailwind 
 
 ### Additional Libraries
 - **React Router**: For client-side routing.
-- **Axios**: For API calls.
-- **React Icons**: For beautiful and scalable icons.
-- **React Toastify**: For user-friendly notifications.
+- **React Slider slick**: For user-friendly notifications.
 
 ## Available Scripts
 
@@ -72,5 +70,8 @@ src/
 
 Contributions are welcome! Feel free to open issues or submit pull requests to enhance the project.
 
-Coded By Devas
+---
+
+## Coded By Devas
+
 Happy Coding! 🎉
