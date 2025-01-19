@@ -14,8 +14,9 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout/>,
+    
     children: [
-      {index:true, element:<App/>},
+      {index:true, element:<App/>,loader: () => {document.title = 'Online Shop'}},
       {path:'category/:category',element:<Category/>,loader:({params}) => {const categoryName = params.category;document.title = `${categoryName} - Category`}},
       {path:'product/:id',element:<Productpage/>},
       {path:'cart',element:<Cart/>,loader: () => {document.title = 'Cart'}},
