@@ -12,7 +12,11 @@ const Cart = () => {
   }, [cart])
 
   if(cart.length == 0){
-    return <div>Your Cart Is Empty</div>
+    return (
+      <div className='w-12/12 flex justify-center items-center text-center mt-40'>
+            <h1 className="text-red-500 text-3xl">Product You Add To Cart Will visible Here But It is Empty Now :(</h1>
+      </div>
+  )
   }
 
   return (

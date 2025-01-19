@@ -16,6 +16,7 @@ function Productpage() {
             .then(result => {
                 setProduct(result);
                 setLoading(false);
+                document.title = result.title
             })
             .catch(error => {
                 console.log(`Fetch Falied: ${error}`);
@@ -24,6 +25,7 @@ function Productpage() {
 
 
         window.scrollTo(0, 0);
+        
     }, [productId]);
 
     if (Loading) return <Productskeleton />;

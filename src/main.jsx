@@ -8,6 +8,7 @@ import App from './App';
 import Productpage from './components/Body/Productpage';
 import { Context } from './Context/Context';
 import Cart from './components/Body/Cart';
+import Aboutus from './components/Body/Aboutus';
 
 const router = createBrowserRouter([
   {
@@ -15,9 +16,10 @@ const router = createBrowserRouter([
     element: <Layout/>,
     children: [
       {index:true, element:<App/>},
-      {path:'category/:category',element:<Category/>},
+      {path:'category/:category',element:<Category/>,loader:({params}) => {const categoryName = params.category;document.title = `${categoryName} - Category`}},
       {path:'product/:id',element:<Productpage/>},
-      {path:'cart',element:<Cart/>}
+      {path:'cart',element:<Cart/>,loader: () => {document.title = 'Cart'}},
+      {path:'about-us',element:<Aboutus/>,loader: () => {document.title = 'About Us'}}
     ]
   },
   
